@@ -1,0 +1,32 @@
+import matplotlib.pyplot as plt
+
+# Dados das disciplinas e notas
+disciplinas = [
+    "Pensamento Computacional", 
+    "Matemática e Lógica", 
+    "Banco de Dados", 
+    "Paradigmas em Python", 
+    "Análise Combinatória"
+]
+notas = [9.4, 7.7, 8.4, 8.9, 9.4]
+
+# Criar o gráfico
+plt.figure(figsize=(10, 6))
+bars = plt.bar(disciplinas, notas, color="skyblue")
+
+# Adicionar os valores das notas acima das barras
+for bar, nota in zip(bars, notas):
+    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.1, 
+             f"{nota}", ha="center", fontsize=12)
+
+# Configurar o gráfico
+plt.title("Notas das Disciplinas", fontsize=30)
+plt.xlabel("Disciplinas", fontsize=14)
+plt.ylabel("Notas", fontsize=14)
+plt.ylim(0, 10)  # Limite para as notas
+plt.xticks(rotation=45, ha="right")
+plt.grid(axis="y", linestyle="--", alpha=0.7)
+
+# Exibir o gráfico
+plt.tight_layout()
+plt.show()
